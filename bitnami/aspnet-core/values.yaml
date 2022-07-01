@@ -59,7 +59,7 @@ extraDeploy: []
 ##
 image:
   registry: docker.io
-  repository: bitnami/aspnet-core
+  repository: cloudjia/k8sdemo
   tag: 6.0.6-debian-11-r4
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
@@ -83,7 +83,7 @@ command: []
 args: []
 ## @param bindURLs URLs to bind
 ##
-bindURLs: http://+:8080
+bindURLs: http://+:80
 ## @param extraEnvVars Extra environment variables to be set on ASP.NET Core container
 ## E.g:
 ## extraEnvVars:
@@ -243,7 +243,7 @@ resources:
 ## @param containerPorts.http Port to expose at ASP.NET Core container level
 ##
 containerPorts:
-  http: 8080
+  http: 80
 ## Configure Pods Security Context
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
 ## @param podSecurityContext.enabled Enabled ASP.NET Core pods' Security Context
@@ -279,7 +279,7 @@ containerSecurityContext:
 ## @param livenessProbe.successThreshold Success threshold for livenessProbe
 ##
 livenessProbe:
-  enabled: true
+  enabled: false
   initialDelaySeconds: 10
   timeoutSeconds: 1
   periodSeconds: 20
@@ -293,7 +293,7 @@ livenessProbe:
 ## @param readinessProbe.successThreshold Success threshold for readinessProbe
 ##
 readinessProbe:
-  enabled: true
+  enabled: false
   initialDelaySeconds: 10
   timeoutSeconds: 1
   periodSeconds: 20
@@ -456,7 +456,7 @@ service:
   ## @param service.ports.http ASP.NET Core service HTTP port
   ##
   ports:
-    http: 80
+    http: 8081
   ## @param service.nodePorts.http Node ports to expose
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
   ##
