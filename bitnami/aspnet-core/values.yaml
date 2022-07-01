@@ -432,7 +432,7 @@ appFromExternalRepo:
     extraFlags: []
   ## @param appFromExternalRepo.startCommand Command used to start ASP.NET Core app
   ##
-  startCommand: ["dotnet", "KestrelSample.dll"]
+  startCommand: ["dotnet", "K8SDemo.dll"]
 ## Enable mounting your ASP.NET Core app from an existing PVC
 ## Do not enable it if your docker image already includes your application
 ## @param appFromExistingPVC.enabled Enable mounting your ASP.NET Core app from an existing PVC
